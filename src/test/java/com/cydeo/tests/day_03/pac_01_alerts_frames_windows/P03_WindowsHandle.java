@@ -18,7 +18,7 @@ public class P03_WindowsHandle {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setHeadless(false)
-                .setSlowMo(1000)
+               // .setSlowMo(1000) //do not use with window handle or use promise
         );
     }
 
@@ -39,37 +39,39 @@ public class P03_WindowsHandle {
 
     @AfterEach
     void tearDown() {
-BrowserUtils.sleepWithThread(100);
+BrowserUtils.sleepWithThread(3);
 page.close();
     }
 
     @Test
     void test1() {
 
-        page.pause();
 
+       // page.pause();
         //get the title
         System.out.println("before clicking page title = " + page.title());
 
         //click Click Here button (it will open a new tab)
 
 
-/*
+
      //   search   it
         ElementHandle locator = page.querySelector("text=Click Here");
 
 
         locator.click();
 
-*/
+
 
         //get second window title
         BrowserUtils.sleepWithThread(3);
-
+/*
         Page secondPage = page.waitForPopup(() -> {
             page.getByText("Click Here").click();
         });
+*/
 
+        Page secondPage = page.waitForPopup(() -> {});
         System.out.println("after clicking button second page title= " + secondPage.title());
 
         BrowserUtils.sleepWithThread(3);
