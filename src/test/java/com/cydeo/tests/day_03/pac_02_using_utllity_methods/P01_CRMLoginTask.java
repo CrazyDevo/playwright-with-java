@@ -22,7 +22,7 @@ public class P01_CRMLoginTask {
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                 .setHeadless(false)
-                .setSlowMo(1000)
+
         );
     }
 
@@ -38,7 +38,7 @@ public class P01_CRMLoginTask {
     @BeforeEach
     void setUp() {
         page = browser.newContext().newPage();
-        page.navigate("https://login1.nextbasecrm.com/");
+        page.navigate("https://login2.nextbasecrm.com/");
     }
 
     @AfterEach
@@ -52,6 +52,12 @@ public class P01_CRMLoginTask {
 
         CRMUtils.login(page);
 
+
+    }
+
+    @Test
+    void test2() {
+        CRMUtils.login(page,"marketing1@cydeo.com","UserUser");
 
     }
 }

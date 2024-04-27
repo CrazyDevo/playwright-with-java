@@ -13,4 +13,13 @@ public class CRMUtils {
         page.locator(".login-btn").click();
 
     }
+
+    public static void login(@NotNull Page page,String username,String password) {
+
+        page.locator("//input[@name='USER_LOGIN']").fill(username);
+        page.getByPlaceholder("password").fill(password);
+
+        page.locator(".login-btn").click();
+
+    }
 }
