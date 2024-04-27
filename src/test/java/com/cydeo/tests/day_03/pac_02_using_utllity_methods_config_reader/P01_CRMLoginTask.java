@@ -1,6 +1,5 @@
-package com.cydeo.tests.day_03.pac_02_using_utllity_methods;
+package com.cydeo.tests.day_03.pac_02_using_utllity_methods_config_reader;
 
-import com.cydeo.utils.BrowserUtils;
 import com.cydeo.utils.CRMUtils;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
